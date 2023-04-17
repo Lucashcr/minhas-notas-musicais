@@ -78,3 +78,8 @@ def test_tom_retorna_corretamente(acorde, intervalo, semitonado):
 def test_tom_deve_lancar_ValueError(intervalo):
     with pytest.raises(ValueError) as error_info:
         Acorde(Nota('C')).tom(intervalo)
+
+
+def test_muda_tonalidade_do_acorde():
+    assert -Acorde('C') == Acorde('C', 'menor')
+    assert -Acorde('C', 'menor') == Acorde('C', 'maior')

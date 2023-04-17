@@ -58,6 +58,12 @@ class Acorde:
             self.tensoes == __o.tensoes
         )
 
+    def __neg__(self):
+        if self.tonalidade == 'maior':
+            return Acorde(self.tonica, 'menor', self.tensoes)
+        else:
+            return Acorde(self.tonica, 'maior', self.tensoes)
+
     @classmethod
     def parse(cls, acorde: str) -> Acorde:
         m = cls.ACORDE_REGEX.match(acorde)

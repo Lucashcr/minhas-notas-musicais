@@ -1,5 +1,5 @@
 from .acordes import Acorde
-from .notas import Nota, NOTAS_COM_BEMOL, NOTAS_COM_SUSTENIDO, TODAS_AS_NOTAS
+from .notas import NOTAS_COM_BEMOL, NOTAS_COM_SUSTENIDO, TODAS_AS_NOTAS
 from .notas import *
 
 
@@ -20,7 +20,10 @@ class Progressao:
         return Progressao(*map(lambda item: Acorde.parse(item), progressao))
 
     def semitom(self, intervalo: int = +1, acidente: str | None = None):
-        return Progressao(*(acorde.semitom(intervalo, acidente) for acorde in self.acordes))
+        return Progressao(*(
+            acorde.semitom(intervalo, acidente)
+            for acorde in self.acordes
+        ))
 
     def tom(self, intervalo: int = +1, acidente: str | None = None):
         return self.semitom(2*intervalo, acidente)
@@ -63,4 +66,7 @@ class Progressao:
         if len(self.acordes) != len(other.acordes):
             return False
 
-        return all(self.acordes[i] == other.acordes[i] for i in range(len(self.acordes)))
+        return all(
+            self.acordes[i] == other.acordes[i]
+            for i in range(len(self.acordes))
+        )

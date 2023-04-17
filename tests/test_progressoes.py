@@ -69,5 +69,8 @@ def test_semitom_retorna_corretamente_com_sustenidos(progressao, intervalo, semi
     ]
 )
 def test_semitom_retorna_corretamente_com_bemois(progressao, intervalo, semitonado):
-    assert Progressao.parse(progressao).semitom(
-        intervalo, 'b') == Progressao.parse(semitonado)
+    assert (
+        Progressao.parse(progressao).semitom(intervalo, 'b')
+        ==
+        Progressao.parse(semitonado)
+    )
