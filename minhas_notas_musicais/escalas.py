@@ -32,6 +32,5 @@ class Escala:
         # esc += '|'
         # return '-'*len(esc) + '\n' + esc + '\n' + '-'*len(esc)
 
-    @classmethod
-    def intervalos(cls, tonalidade: str = 'maior'):
-        return [INTERVALOS[i] for i in ESCALAS[tonalidade]]
+    def intervalos(self):
+        return [INTERVALOS[i] for i in ESCALAS[self.tonalidade]]
