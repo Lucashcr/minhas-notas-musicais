@@ -25,11 +25,12 @@ class Escala:
         self.tonalidade = tonalidade
 
     def __str__(self) -> str:
-        esc = ''
-        for i in ESCALAS[self.tonalidade]:
-            esc += f'| {self.tonica.semitom(i):<2} '
-        esc += '|'
-        return '-'*len(esc) + '\n' + esc + '\n' + '-'*len(esc)
+        return ' '.join(str(self.tonica.semitom(i)) for i in ESCALAS[self.tonalidade])
+        # esc = ''
+        # for i in ESCALAS[self.tonalidade]:
+        #     esc += f'| {self.tonica.semitom(i):<2} '
+        # esc += '|'
+        # return '-'*len(esc) + '\n' + esc + '\n' + '-'*len(esc)
 
     @classmethod
     def intervalos(cls, tonalidade: str = 'maior'):
