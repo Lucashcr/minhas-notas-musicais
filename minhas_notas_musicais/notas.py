@@ -33,9 +33,6 @@ class Nota:
     def __str__(self) -> str:
         return self.nota + self.acidente
 
-    def __format__(self, __format_spec: str) -> str:
-        return self.__str__().__format__(__format_spec)
-
     def __eq__(self, __o: Nota) -> bool:
         return (
             self.nota == __o.nota and
